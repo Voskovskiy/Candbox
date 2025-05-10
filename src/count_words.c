@@ -13,51 +13,36 @@ bool isTab(char c);
 bool shouldSetOutState(char c);
 
 // Counting rows, words & simbols
-int main()
-{
-  int c, nl, nw, nc, state;
-  state = OUT;
-  nl = nw = nc = 0;
+int main() {
+    int c, nl, nw, nc, state;
+    state = OUT;
+    nl = nw = nc = 0;
 
-  while ((c = getchar()) != EOF)
-  {
-    ++nc;
+    while ((c = getchar()) != EOF) {
+        ++nc;
 
-    if (isNewLine(c))
-      ++nl;
+        if (isNewLine(c))
+            ++nl;
 
-    if (shouldSetOutState(c))
-    {
-      state = OUT;
+        if (shouldSetOutState(c)) {
+            state = OUT;
+        } else if (state == OUT) {
+            state = IN;
+            ++nw;
+        }
     }
-    else if (state == OUT)
-    {
-      state = IN;
-      ++nw;
-    }
-  }
 
-  printf("%d %d %d\n", nl, nw, nc);
+    printf("%d %d %d\n", nl, nw, nc);
 
-  return 0;
+    return 0;
 }
 
-bool isNewLine(char c)
-{
-  return c == '\n';
-}
+bool isNewLine(char c) { return c == '\n'; }
 
-bool isSpace(char c)
-{
-  return c == ' ';
-}
+bool isSpace(char c) { return c == ' '; }
 
-bool isTab(char c)
-{
-  return c == '\t';
-}
+bool isTab(char c) { return c == '\t'; }
 
-bool shouldSetOutState(char c)
-{
-  return isSpace(c) || isNewLine(c) || isTab(c);
+bool shouldSetOutState(char c) {
+    return isSpace(c) || isNewLine(c) || isTab(c);
 }
