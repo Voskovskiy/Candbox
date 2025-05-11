@@ -1,4 +1,5 @@
 #include "utilities.h"
+#include "constants.h"
 
 // ASCII character to lower case
 int lower(int c) {
@@ -14,4 +15,22 @@ int override_strlen(char s[]) {
     while (s[i] != END_OF_STRING)
         ++i;
     return i;
+}
+
+void squeeze(char s[], int c) {
+    int i, j;
+    for (i = j = 0; s[i] != END_OF_STRING; i++) {
+        if (s[i] != c) {
+            s[j++] = s[i];
+        }
+    }
+    s[i] = END_OF_STRING;
+}
+
+void strcat(char s[], char t[]) {
+    int i, j = 0;
+    while (s[i] != END_OF_STRING)
+        i++;
+    while ((s[i++] = t[j++]) != END_OF_STRING)
+        ;
 }

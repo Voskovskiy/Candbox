@@ -9,4 +9,6 @@
 #define TAB '\t'
 #define END_OF_STRING '\0'
 
+#define NOT_FOUND -1
+
 #endif // CONSTANTS_H
