@@ -37,6 +37,7 @@ gcc "${SOURCE_FILES[@]}" -o "$OUTPUT_PATH"
 if [ $? -eq 0 ]; then
     echo "✅ Build succeeded"
     echo "🚀 Running: $OUTPUT_PATH"
+    "$OUTPUT_PATH"
 else
     echo "❌ Build failed"
 fi
