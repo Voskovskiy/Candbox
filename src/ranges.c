@@ -63,7 +63,7 @@ char *separator() {
     static char buffer[MAX_SEPARATOR_WIDTH];
     memset(buffer, '#', MAX_SEPARATOR_WIDTH);
 
-    buffer[sizeof(buffer) - 1] = END_OF_STRING; // Buffer musrt end with '\0'
+    buffer[sizeof(buffer) - 1] = END_OF_STRING; // Buffer must end with '\0'
 
     return buffer;
 }
